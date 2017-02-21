@@ -2,37 +2,49 @@
 <html lang="en-us">
 <head>
 <meta charset="utf-8">
-<title>Free Code Camp JavaScript Calculator</title>
+<title>JavaScript Calculator with Vue.js, math.js and Bulma.io</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>Free Code Camp JavaScript Calculator</h1>
-        <div id="calculator">
-            <div id="total">
-            </div>
-            <div id="operators">
-                <a>+</a>
-                <a>-</a>
-                <a>&divide;</a>
-                <a>&times;</a>
-                <a id="equals">=</a>
-            </div>
-            <div id="numbers">
-                <a>1</a>
-                <a>2</a>
-                <a>3</a>
-                <a>4</a>
-                <a>5</a>
-                <a>6</a>
-                <a>7</a>
-                <a>8</a>
-                <a>9</a>
-                <a id="clear">C</a>
-                <a>0</a>
-                <a id="clearall">AC</a>
-            </div>
+<div id="calculator"><header class="title is-1"><h1>JavaScript Calculator<br/> with Vue.js, math.js and Bulma.io</h1></header>
+    <div class="keyboard content">
+        <div class="columns">
+            <div id="total" class="column"><p class="result">{{result}}</p></div>
         </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <div id="operators" class="columns">
+                        <p class="operator-input column" @click="show('+')">+</p>
+                        <p class="operator-input column" @click="show('-')">-</p>
+                        <p class="operator-input column" @click="show('/')">&divide;</p>
+                        <p class="operator-input column" @click="show('*')">&times;</p>
+                    </div>
+        <div class="numbers columns">
+            <p class="number-input column" @click="showNumbers(1)">1</p>
+            <p class="number-input column" @click="showNumbers(2)">2</p>
+            <p class="number-input column" @click="showNumbers(3)">3</p>
+        </div>
+        <div class="numbers columns">
+            <p class="number-input column" @click="showNumbers(4)">4</p>
+            <p class="number-input column" @click="showNumbers(5)">5</p>
+            <p class="number-input column" @click="showNumbers(6)">6</p>
+        </div>
+        <div class="numbers columns">
+            <p class="number-input column" @click="showNumbers(7)">7</p>
+            <p class="number-input column" @click="showNumbers(8)">8</p>
+            <p class="number-input column" @click="showNumbers(9)">9</p>
+        </div>
+        <div class="numbers columns">
+            <p id="clearall" class="number-input column" @click="clear()">AC</p>
+            <p class="number-input column" @click="showNumbers(0)">0</p>
+            <p class="number-input column" @click="showNumbers('.')">.</p>
+        </div>
+        <div class="numbers columns" @click="calc()">
+            <p id="equals" class="number-input column">=</p>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.2/math.min.js"></script>
 <script src="/assets/app.js"></script>
 </body>
 </html>
